@@ -30,11 +30,21 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         getBalance()
+        
+        // force refresh
+        forceRefreshTabBarItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    // this is an item to be fixed
+    func forceRefreshTabBarItem() {
+        self.tabBarController?.selectedIndex = 1
+        self.tabBarController?.selectedIndex = 2
+        self.tabBarController?.selectedIndex = 0
     }
     
     func getBalance() {
