@@ -19,6 +19,9 @@
 		4CEF3D0C1BFF2A85009A0F22 /* FindATMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3D0B1BFF2A85009A0F22 /* FindATMViewController.swift */; };
 		4CEF3D0E1BFF2AA7009A0F22 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3D0D1BFF2AA7009A0F22 /* HomeViewController.swift */; };
 		4CEF3D101BFF2ABB009A0F22 /* GetCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3D0F1BFF2ABB009A0F22 /* GetCashViewController.swift */; };
+		99B7B8E11BFFA00400EB4EB5 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B7B8DE1BFFA00400EB4EB5 /* MapManager.swift */; };
+		99B7B8E21BFFA00400EB4EB5 /* RO_Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 99B7B8DF1BFFA00400EB4EB5 /* RO_Location.gpx */; };
+		99B7B8E31BFFA00400EB4EB5 /* SGP_Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 99B7B8E01BFFA00400EB4EB5 /* SGP_Location.gpx */; };
 		99EC03BD1BFF34D500A8792C /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC03BC1BFF34D500A8792C /* CustomPointAnnotation.swift */; };
 		99EC03BF1BFF374300A8792C /* DummyJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 99EC03BE1BFF374300A8792C /* DummyJSON.json */; };
 		99EC03C11BFF378E00A8792C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC03C01BFF378E00A8792C /* LocationManager.swift */; };
@@ -60,6 +63,9 @@
 		4CEF3D0B1BFF2A85009A0F22 /* FindATMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindATMViewController.swift; sourceTree = "<group>"; };
 		4CEF3D0D1BFF2AA7009A0F22 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4CEF3D0F1BFF2ABB009A0F22 /* GetCashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCashViewController.swift; sourceTree = "<group>"; };
+		99B7B8DE1BFFA00400EB4EB5 /* MapManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
+		99B7B8DF1BFFA00400EB4EB5 /* RO_Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RO_Location.gpx; sourceTree = "<group>"; };
+		99B7B8E01BFFA00400EB4EB5 /* SGP_Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SGP_Location.gpx; sourceTree = "<group>"; };
 		99EC03BC1BFF34D500A8792C /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		99EC03BE1BFF374300A8792C /* DummyJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DummyJSON.json; sourceTree = "<group>"; };
 		99EC03C01BFF378E00A8792C /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -113,6 +119,9 @@
 		4CEF3CD91BFF1577009A0F22 /* CardlessATM */ = {
 			isa = PBXGroup;
 			children = (
+				99B7B8DE1BFFA00400EB4EB5 /* MapManager.swift */,
+				99B7B8DF1BFFA00400EB4EB5 /* RO_Location.gpx */,
+				99B7B8E01BFFA00400EB4EB5 /* SGP_Location.gpx */,
 				4CEF3CDA1BFF1577009A0F22 /* AppDelegate.swift */,
 				4CEF3CDC1BFF1577009A0F22 /* ViewController.swift */,
 				4CEF3CDE1BFF1577009A0F22 /* Main.storyboard */,
@@ -255,8 +264,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				99EC03BF1BFF374300A8792C /* DummyJSON.json in Resources */,
+				99B7B8E31BFFA00400EB4EB5 /* SGP_Location.gpx in Resources */,
 				4CEF3CE81BFF1577009A0F22 /* LaunchScreen.storyboard in Resources */,
 				4CEF3CE51BFF1577009A0F22 /* Assets.xcassets in Resources */,
+				99B7B8E21BFFA00400EB4EB5 /* RO_Location.gpx in Resources */,
 				4CEF3CE01BFF1577009A0F22 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +299,7 @@
 				4CEF3CDD1BFF1577009A0F22 /* ViewController.swift in Sources */,
 				99EC03C11BFF378E00A8792C /* LocationManager.swift in Sources */,
 				4CEF3CDB1BFF1577009A0F22 /* AppDelegate.swift in Sources */,
+				99B7B8E11BFFA00400EB4EB5 /* MapManager.swift in Sources */,
 				4CEF3D101BFF2ABB009A0F22 /* GetCashViewController.swift in Sources */,
 				4CEF3CE31BFF1577009A0F22 /* CardlessATM.xcdatamodeld in Sources */,
 				4C54DDDA1BFF76D900CE307A /* Session.swift in Sources */,
