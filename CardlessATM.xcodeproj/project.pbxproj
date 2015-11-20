@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4CEF3CDB1BFF1577009A0F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3CDA1BFF1577009A0F22 /* AppDelegate.swift */; };
+		4CEF3CDD1BFF1577009A0F22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3CDC1BFF1577009A0F22 /* ViewController.swift */; };
+		4CEF3CE01BFF1577009A0F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEF3CDE1BFF1577009A0F22 /* Main.storyboard */; };
+		4CEF3CE31BFF1577009A0F22 /* CardlessATM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3CE11BFF1577009A0F22 /* CardlessATM.xcdatamodeld */; };
+		4CEF3CE51BFF1577009A0F22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CEF3CE41BFF1577009A0F22 /* Assets.xcassets */; };
+		4CEF3CE81BFF1577009A0F22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEF3CE61BFF1577009A0F22 /* LaunchScreen.storyboard */; };
+		4CEF3CF31BFF1578009A0F22 /* CardlessATMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3CF21BFF1578009A0F22 /* CardlessATMTests.swift */; };
+		4CEF3CFE1BFF1578009A0F22 /* CardlessATMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3CFD1BFF1578009A0F22 /* CardlessATMUITests.swift */; };
+		4CEF3D0C1BFF2A85009A0F22 /* FindATMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3D0B1BFF2A85009A0F22 /* FindATMViewController.swift */; };
+		4CEF3D0E1BFF2AA7009A0F22 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3D0D1BFF2AA7009A0F22 /* HomeViewController.swift */; };
+		4CEF3D101BFF2ABB009A0F22 /* GetCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3D0F1BFF2ABB009A0F22 /* GetCashViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4CEF3CEF1BFF1577009A0F22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CEF3CCF1BFF1577009A0F22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CEF3CD61BFF1577009A0F22;
+			remoteInfo = CardlessATM;
+		};
+		4CEF3CFA1BFF1578009A0F22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CEF3CCF1BFF1577009A0F22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CEF3CD61BFF1577009A0F22;
+			remoteInfo = CardlessATM;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4CEF3CD71BFF1577009A0F22 /* CardlessATM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardlessATM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CEF3CDA1BFF1577009A0F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4CEF3CDC1BFF1577009A0F22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4CEF3CDF1BFF1577009A0F22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4CEF3CE21BFF1577009A0F22 /* CardlessATM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardlessATM.xcdatamodel; sourceTree = "<group>"; };
+		4CEF3CE41BFF1577009A0F22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4CEF3CE71BFF1577009A0F22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4CEF3CE91BFF1577009A0F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CEF3CEE1BFF1577009A0F22 /* CardlessATMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardlessATMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CEF3CF21BFF1578009A0F22 /* CardlessATMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardlessATMTests.swift; sourceTree = "<group>"; };
+		4CEF3CF41BFF1578009A0F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CEF3CF91BFF1578009A0F22 /* CardlessATMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardlessATMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CEF3CFD1BFF1578009A0F22 /* CardlessATMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardlessATMUITests.swift; sourceTree = "<group>"; };
+		4CEF3CFF1BFF1578009A0F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CEF3D0B1BFF2A85009A0F22 /* FindATMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindATMViewController.swift; sourceTree = "<group>"; };
+		4CEF3D0D1BFF2AA7009A0F22 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4CEF3D0F1BFF2ABB009A0F22 /* GetCashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCashViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4CEF3CD41BFF1577009A0F22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CEF3CEB1BFF1577009A0F22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CEF3CF61BFF1578009A0F22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4CEF3CCE1BFF1577009A0F22 = {
+			isa = PBXGroup;
+			children = (
+				4CEF3CD91BFF1577009A0F22 /* CardlessATM */,
+				4CEF3CF11BFF1578009A0F22 /* CardlessATMTests */,
+				4CEF3CFC1BFF1578009A0F22 /* CardlessATMUITests */,
+				4CEF3CD81BFF1577009A0F22 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4CEF3CD81BFF1577009A0F22 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4CEF3CD71BFF1577009A0F22 /* CardlessATM.app */,
+				4CEF3CEE1BFF1577009A0F22 /* CardlessATMTests.xctest */,
+				4CEF3CF91BFF1578009A0F22 /* CardlessATMUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4CEF3CD91BFF1577009A0F22 /* CardlessATM */ = {
+			isa = PBXGroup;
+			children = (
+				4CEF3CDA1BFF1577009A0F22 /* AppDelegate.swift */,
+				4CEF3CDC1BFF1577009A0F22 /* ViewController.swift */,
+				4CEF3CDE1BFF1577009A0F22 /* Main.storyboard */,
+				4CEF3CE41BFF1577009A0F22 /* Assets.xcassets */,
+				4CEF3CE61BFF1577009A0F22 /* LaunchScreen.storyboard */,
+				4CEF3CE91BFF1577009A0F22 /* Info.plist */,
+				4CEF3CE11BFF1577009A0F22 /* CardlessATM.xcdatamodeld */,
+				4CEF3D0B1BFF2A85009A0F22 /* FindATMViewController.swift */,
+				4CEF3D0D1BFF2AA7009A0F22 /* HomeViewController.swift */,
+				4CEF3D0F1BFF2ABB009A0F22 /* GetCashViewController.swift */,
+			);
+			path = CardlessATM;
+			sourceTree = "<group>";
+		};
+		4CEF3CF11BFF1578009A0F22 /* CardlessATMTests */ = {
+			isa = PBXGroup;
+			children = (
+				4CEF3CF21BFF1578009A0F22 /* CardlessATMTests.swift */,
+				4CEF3CF41BFF1578009A0F22 /* Info.plist */,
+			);
+			path = CardlessATMTests;
+			sourceTree = "<group>";
+		};
+		4CEF3CFC1BFF1578009A0F22 /* CardlessATMUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4CEF3CFD1BFF1578009A0F22 /* CardlessATMUITests.swift */,
+				4CEF3CFF1BFF1578009A0F22 /* Info.plist */,
+			);
+			path = CardlessATMUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4CEF3CD61BFF1577009A0F22 /* CardlessATM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CEF3D021BFF1578009A0F22 /* Build configuration list for PBXNativeTarget "CardlessATM" */;
+			buildPhases = (
+				4CEF3CD31BFF1577009A0F22 /* Sources */,
+				4CEF3CD41BFF1577009A0F22 /* Frameworks */,
+				4CEF3CD51BFF1577009A0F22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CardlessATM;
+			productName = CardlessATM;
+			productReference = 4CEF3CD71BFF1577009A0F22 /* CardlessATM.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4CEF3CED1BFF1577009A0F22 /* CardlessATMTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CEF3D051BFF1578009A0F22 /* Build configuration list for PBXNativeTarget "CardlessATMTests" */;
+			buildPhases = (
+				4CEF3CEA1BFF1577009A0F22 /* Sources */,
+				4CEF3CEB1BFF1577009A0F22 /* Frameworks */,
+				4CEF3CEC1BFF1577009A0F22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4CEF3CF01BFF1577009A0F22 /* PBXTargetDependency */,
+			);
+			name = CardlessATMTests;
+			productName = CardlessATMTests;
+			productReference = 4CEF3CEE1BFF1577009A0F22 /* CardlessATMTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4CEF3CF81BFF1578009A0F22 /* CardlessATMUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CEF3D081BFF1578009A0F22 /* Build configuration list for PBXNativeTarget "CardlessATMUITests" */;
+			buildPhases = (
+				4CEF3CF51BFF1578009A0F22 /* Sources */,
+				4CEF3CF61BFF1578009A0F22 /* Frameworks */,
+				4CEF3CF71BFF1578009A0F22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4CEF3CFB1BFF1578009A0F22 /* PBXTargetDependency */,
+			);
+			name = CardlessATMUITests;
+			productName = CardlessATMUITests;
+			productReference = 4CEF3CF91BFF1578009A0F22 /* CardlessATMUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4CEF3CCF1BFF1577009A0F22 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = Michael;
+				TargetAttributes = {
+					4CEF3CD61BFF1577009A0F22 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 6CGSY8527L;
+					};
+					4CEF3CED1BFF1577009A0F22 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 4CEF3CD61BFF1577009A0F22;
+					};
+					4CEF3CF81BFF1578009A0F22 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 4CEF3CD61BFF1577009A0F22;
+					};
+				};
+			};
+			buildConfigurationList = 4CEF3CD21BFF1577009A0F22 /* Build configuration list for PBXProject "CardlessATM" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4CEF3CCE1BFF1577009A0F22;
+			productRefGroup = 4CEF3CD81BFF1577009A0F22 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4CEF3CD61BFF1577009A0F22 /* CardlessATM */,
+				4CEF3CED1BFF1577009A0F22 /* CardlessATMTests */,
+				4CEF3CF81BFF1578009A0F22 /* CardlessATMUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4CEF3CD51BFF1577009A0F22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CEF3CE81BFF1577009A0F22 /* LaunchScreen.storyboard in Resources */,
+				4CEF3CE51BFF1577009A0F22 /* Assets.xcassets in Resources */,
+				4CEF3CE01BFF1577009A0F22 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CEF3CEC1BFF1577009A0F22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CEF3CF71BFF1578009A0F22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4CEF3CD31BFF1577009A0F22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CEF3D0E1BFF2AA7009A0F22 /* HomeViewController.swift in Sources */,
+				4CEF3D0C1BFF2A85009A0F22 /* FindATMViewController.swift in Sources */,
+				4CEF3CDD1BFF1577009A0F22 /* ViewController.swift in Sources */,
+				4CEF3CDB1BFF1577009A0F22 /* AppDelegate.swift in Sources */,
+				4CEF3D101BFF2ABB009A0F22 /* GetCashViewController.swift in Sources */,
+				4CEF3CE31BFF1577009A0F22 /* CardlessATM.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CEF3CEA1BFF1577009A0F22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CEF3CF31BFF1578009A0F22 /* CardlessATMTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CEF3CF51BFF1578009A0F22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CEF3CFE1BFF1578009A0F22 /* CardlessATMUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4CEF3CF01BFF1577009A0F22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CEF3CD61BFF1577009A0F22 /* CardlessATM */;
+			targetProxy = 4CEF3CEF1BFF1577009A0F22 /* PBXContainerItemProxy */;
+		};
+		4CEF3CFB1BFF1578009A0F22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CEF3CD61BFF1577009A0F22 /* CardlessATM */;
+			targetProxy = 4CEF3CFA1BFF1578009A0F22 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4CEF3CDE1BFF1577009A0F22 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CEF3CDF1BFF1577009A0F22 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4CEF3CE61BFF1577009A0F22 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CEF3CE71BFF1577009A0F22 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4CEF3D001BFF1578009A0F22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4CEF3D011BFF1578009A0F22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4CEF3D031BFF1578009A0F22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = CardlessATM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = INGHackathon.CardlessATM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		4CEF3D041BFF1578009A0F22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = CardlessATM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = INGHackathon.CardlessATM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		4CEF3D061BFF1578009A0F22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CardlessATMTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = INGHackathon.CardlessATMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CardlessATM.app/CardlessATM";
+			};
+			name = Debug;
+		};
+		4CEF3D071BFF1578009A0F22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CardlessATMTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = INGHackathon.CardlessATMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CardlessATM.app/CardlessATM";
+			};
+			name = Release;
+		};
+		4CEF3D091BFF1578009A0F22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CardlessATMUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = INGHackathon.CardlessATMUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CardlessATM;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		4CEF3D0A1BFF1578009A0F22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CardlessATMUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = INGHackathon.CardlessATMUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CardlessATM;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4CEF3CD21BFF1577009A0F22 /* Build configuration list for PBXProject "CardlessATM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CEF3D001BFF1578009A0F22 /* Debug */,
+				4CEF3D011BFF1578009A0F22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CEF3D021BFF1578009A0F22 /* Build configuration list for PBXNativeTarget "CardlessATM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CEF3D031BFF1578009A0F22 /* Debug */,
+				4CEF3D041BFF1578009A0F22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4CEF3D051BFF1578009A0F22 /* Build configuration list for PBXNativeTarget "CardlessATMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CEF3D061BFF1578009A0F22 /* Debug */,
+				4CEF3D071BFF1578009A0F22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4CEF3D081BFF1578009A0F22 /* Build configuration list for PBXNativeTarget "CardlessATMUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CEF3D091BFF1578009A0F22 /* Debug */,
+				4CEF3D0A1BFF1578009A0F22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4CEF3CE11BFF1577009A0F22 /* CardlessATM.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4CEF3CE21BFF1577009A0F22 /* CardlessATM.xcdatamodel */,
+			);
+			currentVersion = 4CEF3CE21BFF1577009A0F22 /* CardlessATM.xcdatamodel */;
+			path = CardlessATM.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4CEF3CCF1BFF1577009A0F22 /* Project object */;
+}
