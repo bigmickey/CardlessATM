@@ -23,12 +23,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jdj-zH-hzm">
-                                <rect key="frame" x="240" y="265" width="121" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ING_Lion" translatesAutoresizingMaskIntoConstraints="NO" id="ALh-vy-mP1">
                                 <rect key="frame" x="-8" y="51" width="550" height="129"/>
                                 <animations/>
@@ -40,6 +34,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMp-X2-l3l" userLabel="ErrorMessage">
+                                <rect key="frame" x="235" y="363" width="130" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5Q-nM-SZ7">
                                 <rect key="frame" x="281" y="325" width="38" height="30"/>
                                 <animations/>
@@ -49,12 +49,12 @@
                                     <segue destination="UmD-HR-JFf" kind="presentation" identifier="loginSuccessSegue" id="Ibr-8T-Bd9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMp-X2-l3l" userLabel="ErrorMessage">
-                                <rect key="frame" x="235" y="363" width="130" height="21"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jdj-zH-hzm">
+                                <rect key="frame" x="235" y="265" width="130" height="30"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -113,14 +113,14 @@
                             <constraint firstItem="iTq-ok-t3k" firstAttribute="width" secondItem="Qr3-0e-j99" secondAttribute="width" id="bkp-ki-Z6T"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Find ATM" image="atm_icon" id="CKB-pg-re9" userLabel="Find ATM"/>
+                    <tabBarItem key="tabBarItem" title="Find ATM" image="atm_icon" selectedImage="atm_icon" id="CKB-pg-re9" userLabel="Find ATM"/>
                     <connections>
                         <outlet property="mapView" destination="iTq-ok-t3k" id="IOt-FO-xwv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q17-iQ-DzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1907" y="687"/>
+            <point key="canvasLocation" x="1907" y="754"/>
         </scene>
         <!--Get Cash-->
         <scene sceneID="JHB-P6-7vL">
@@ -189,11 +189,11 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Get Cash" image="cash_icon" id="pvh-x5-r98"/>
+                    <tabBarItem key="tabBarItem" title="Get Cash" image="cash_icon" selectedImage="cash_icon" id="pvh-x5-r98"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDk-0A-s24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902" y="1378"/>
+            <point key="canvasLocation" x="1907" y="1490"/>
         </scene>
         <!--Home-->
         <scene sceneID="TdV-4I-WqP">
@@ -207,43 +207,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Balance:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEE-Is-4xJ">
-                                <rect key="frame" x="169" y="78" width="150" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Balance: $1234.56" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEE-Is-4xJ">
+                                <rect key="frame" x="197" y="220" width="206" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Available Funds:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-tt-pW0">
-                                <rect key="frame" x="183" y="122" width="136" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Funds: $1034.56" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-tt-pW0">
+                                <rect key="frame" x="199" y="264" width="202" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nearest ATM:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqW-dG-pr3">
-                                <rect key="frame" x="228" y="173" width="144" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DBS, Tampines Grande" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDB-XD-Yqz">
+                                <rect key="frame" x="212" y="344" width="177" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$1234.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfS-VI-4Xp">
-                                <rect key="frame" x="327" y="78" width="169" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ING_Lion" translatesAutoresizingMaskIntoConstraints="NO" id="ahM-3P-e0l">
+                                <rect key="frame" x="380" y="28" width="200" height="129"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$1204.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNZ-fh-0hR">
-                                <rect key="frame" x="327" y="122" width="169" height="21"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-QU-EMy">
+                                <rect key="frame" x="268" y="407" width="65" height="30"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DBS, Tampines Grande" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDB-XD-Yqz">
-                                <rect key="frame" x="181" y="202" width="238" height="21"/>
+                                <state key="normal" title="Find ATM"/>
+                                <connections>
+                                    <action selector="findATM:" destination="0yK-sM-DCK" eventType="touchUpInside" id="X2c-Za-Qkm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nearest ATM:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqW-dG-pr3">
+                                <rect key="frame" x="248" y="315" width="104" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -251,7 +249,21 @@
                             </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="ahM-3P-e0l" secondAttribute="trailing" id="LXT-0V-gOX"/>
+                            <constraint firstItem="VEE-Is-4xJ" firstAttribute="centerX" secondItem="jlP-e3-tJG" secondAttribute="centerX" id="TOv-Dz-1Yw"/>
+                            <constraint firstItem="Fuv-tt-pW0" firstAttribute="centerX" secondItem="jlP-e3-tJG" secondAttribute="centerX" id="Tdz-de-Oju"/>
+                            <constraint firstItem="QqW-dG-pr3" firstAttribute="top" secondItem="Fuv-tt-pW0" secondAttribute="bottom" constant="30" id="bXJ-DX-iX8"/>
+                            <constraint firstItem="QqW-dG-pr3" firstAttribute="centerX" secondItem="jlP-e3-tJG" secondAttribute="centerX" id="beZ-s1-9zY"/>
+                            <constraint firstItem="0zP-QU-EMy" firstAttribute="top" secondItem="gDB-XD-Yqz" secondAttribute="bottom" constant="42" id="eH4-SI-jic"/>
+                            <constraint firstItem="ahM-3P-e0l" firstAttribute="top" secondItem="gKZ-gh-Gph" secondAttribute="bottom" constant="8" id="eX3-6e-3Df"/>
+                            <constraint firstItem="0zP-QU-EMy" firstAttribute="centerX" secondItem="jlP-e3-tJG" secondAttribute="centerX" id="ee7-LG-4Dx"/>
+                            <constraint firstItem="Fuv-tt-pW0" firstAttribute="top" secondItem="VEE-Is-4xJ" secondAttribute="bottom" constant="23" id="iuA-92-nyU"/>
+                            <constraint firstItem="gDB-XD-Yqz" firstAttribute="top" secondItem="QqW-dG-pr3" secondAttribute="bottom" constant="8" id="jlC-gM-Ccs"/>
+                            <constraint firstItem="gDB-XD-Yqz" firstAttribute="centerX" secondItem="jlP-e3-tJG" secondAttribute="centerX" id="okJ-gE-lzL"/>
+                            <constraint firstItem="VEE-Is-4xJ" firstAttribute="top" secondItem="gKZ-gh-Gph" secondAttribute="bottom" constant="200" id="q0w-yz-C1S"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home_icon" selectedImage="home_icon" id="e3D-rn-aRA" userLabel="Home"/>
                 </viewController>

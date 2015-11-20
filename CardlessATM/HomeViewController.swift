@@ -10,6 +10,10 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBAction func findATM(sender: AnyObject) {
+        self.tabBarController?.selectedIndex = 1
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
