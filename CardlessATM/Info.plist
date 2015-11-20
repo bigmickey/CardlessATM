@@ -30,6 +30,18 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>&quot;&quot;</key>
+			<string></string>
+		</dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
