@@ -14,6 +14,7 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet weak var mapView: MKMapView!
     var coreLocationManager = CLLocationManager()
     var locationManager:LocationManager!
+    var userLocation: CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,9 +72,45 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         let customPointAnnotation = annotation as! CustomPointAnnotation
         v!.image = UIImage(named:customPointAnnotation.pinCustomImageName)
         
+        //v!.sizeThatFits(CGSize(width: 200, height: 100))
+        
         configureDetailView(v as MKAnnotationView!, customPointAnnotation: customPointAnnotation)
         
         return v
+    }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        print(view.annotation?.title)
+        print(view.annotation?.coordinate)
+        
+        //let userCoord = CLLocationCoordinate2D
+        //var pinCoord : CLLocationCoordinate2D = CLLocationCoordinate2DMake(view.annotation?.coordinate.latitude.value, view.coordinate.longitude)
+    
+        //let userCoord : CLLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        let pinCoord : CLLocation = CLLocation(latitude: view.annotation?.coordinate.latitude as CLLocationDegrees!, longitude: view.annotation?.coordinate.longitude as CLLocationDegrees!)
+        
+        let mapManager : MapManager = MapManager()
+        let dest : CLLocationCoordinate2D = CLLocationCoordinate2DMake(pinCoord.coordinate.latitude, pinCoord.coordinate.longitude)
+        mapManager.directionsFromCurrentLocation(to: dest) { (route, directionInformation, boundingRegion, error) -> () in
+            if let web = self.mapView{
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    print(route)
+                    print(boundingRegion)
+                    web.addOverlay(route!)
+                    web.setVisibleMapRect(boundingRegion!, animated: true)
+                    
+                }
+                
+            }
+        }
+
+    }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+        renderer.strokeColor = UIColor.blueColor()
+        return renderer
     }
     
 
@@ -100,10 +137,13 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     func displayLocation(location:CLLocation)
     {
-        mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude), span: MKCoordinateSpanMake(0.009, 0.009)), animated: true)
+        userLocation = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
+        mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude), span: MKCoordinateSpanMake(0.019, 0.019)), animated: true)
         self.mapView.showsScale = true
         self.mapView.showsCompass = true
         self.mapView.showsTraffic = true
+        self.mapView.zoomEnabled = true
         self.mapView.showsUserLocation = true
         
         displayATMs()
@@ -155,13 +195,6 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                     annotationView.animatesDrop = true
                     
                     self.mapView.addAnnotation(annotationView.annotation!)
-                    /*
-                    let pin : MKPointAnnotation = MKPointAnnotation()
-                    pin.title = "test"
-                    pin.coordinate = locationPinCoord
-                    
-                    annotationView = MKPinAnnotationView(annotation: pin, reuseIdentifier: "pin")
-                    self.mapView.addAnnotation(pin)*/
                     
                 }
                 
@@ -187,7 +220,8 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     func configureDetailView(annotationView: MKAnnotationView, customPointAnnotation: CustomPointAnnotation)
     {
-        let container = UIView()
+        let container = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+        container.backgroundColor = UIColor.blackColor()
         
         let note10View = UIImageView (frame: CGRect(x: 0, y: -15, width: 25, height: 15))
         if customPointAnnotation.has10notes != nil && customPointAnnotation.has10notes == true
@@ -232,8 +266,9 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
             note100View.image = UIImage(named: "100gray")
         }
         container.addSubview(note100View)
-        
+
         annotationView.detailCalloutAccessoryView = container
+        annotationView.sizeToFit()
     }
     
     
