@@ -266,6 +266,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home_icon" selectedImage="home_icon" id="e3D-rn-aRA" userLabel="Home"/>
+                    <connections>
+                        <outlet property="availableBalanceLabel" destination="Fuv-tt-pW0" id="ZBi-Nk-0xD"/>
+                        <outlet property="currentBalanceLabel" destination="VEE-Is-4xJ" id="nlo-uP-v8g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyL-GC-vy9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,6 +10,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    // global variable
+    let GetBalanceURL = "http://172.16.16.149/MVCREST/24HSG/bankaccount"
+    let CurrentBalancePrefix = "Current Balance: "
+    let AvailableBalancePrefix = "Available Funds: "
+    
+    @IBOutlet weak var currentBalanceLabel: UILabel!
+    @IBOutlet weak var availableBalanceLabel: UILabel!
+    
     @IBAction func findATM(sender: AnyObject) {
         self.tabBarController?.selectedIndex = 1
     }
@@ -19,12 +27,73 @@ class HomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        getBalance()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func getBalance() {
+        let username = "Todd"
+        
+        let url = GetBalanceURL + "/" + username
+        
+        self.get(url)
+    }
+    
+    func get(url : String) {
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+        request.HTTPMethod = "GET"
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue()) { (response:NSURLResponse?, data: NSData?, error:NSError?) -> Void in
+            print("\(data?.length)")
+            
+            let json: NSDictionary?
+            do {
+                if let safeData = data {
+                    json = try NSJSONSerialization.JSONObjectWithData(safeData, options: .MutableLeaves) as? NSDictionary
+                } else {
+                    // todo: handle this as an error because data is nil
+                    json = nil
+                }
+            } catch let dataError {
+                // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
+                print(dataError)
+                let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Error could not parse JSON: '\(jsonStr)'")
+                // return or throw?
+                return
+            }
+            
+            // The JSONObjectWithData constructor didn't return an error. But, we should still
+            // check and make sure that json has a value using optional binding.
+            if let parseJSON = json {
+                // Okay, the parsedJSON is here, let's get the value for 'success' out of it
+                if let currentBalance = parseJSON["Current_balance"] as? Float {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.currentBalanceLabel.text = self.CurrentBalancePrefix + "$\(currentBalance)"
+                    })
+                }
+                
+                if let availableBalance = parseJSON["Available_balance"] as? Float {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.availableBalanceLabel.text = self.AvailableBalancePrefix + "$\(availableBalance)"
+                    })
+                }
+            }
+            else {
+                // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Error could not parse JSON: \(jsonStr)")
+            }
+            
+        }
+    }
+
 
     /*
     // MARK: - Navigation
