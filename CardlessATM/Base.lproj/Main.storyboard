@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter login name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iyl-M7-lGE">
-                                <rect key="frame" x="235" y="285" width="130" height="30"/>
+                                <rect key="frame" x="235" y="218" width="130" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jdj-zH-hzm">
-                                <rect key="frame" x="240" y="332" width="121" height="30"/>
+                                <rect key="frame" x="240" y="265" width="121" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -33,21 +33,15 @@
                                 <rect key="frame" x="-8" y="51" width="550" height="129"/>
                                 <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXr-bV-yax">
-                                <rect key="frame" x="110" y="61" width="195" height="108"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ING" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXr-bV-yax">
+                                <rect key="frame" x="205" y="61" width="140" height="94"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="100"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="80"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMp-X2-l3l" userLabel="ErrorMessage">
-                                <rect key="frame" x="235" y="474" width="130" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5Q-nM-SZ7">
-                                <rect key="frame" x="281" y="392" width="38" height="30"/>
+                                <rect key="frame" x="281" y="325" width="38" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Login"/>
                                 <connections>
@@ -55,11 +49,17 @@
                                     <segue destination="UmD-HR-JFf" kind="presentation" identifier="loginSuccessSegue" id="Ibr-8T-Bd9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMp-X2-l3l" userLabel="ErrorMessage">
+                                <rect key="frame" x="235" y="363" width="130" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="iyl-M7-lGE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1Ct-ml-lFg"/>
+                            <constraint firstItem="iyl-M7-lGE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-67" id="1Ct-ml-lFg"/>
                             <constraint firstItem="r5Q-nM-SZ7" firstAttribute="top" secondItem="Jdj-zH-hzm" secondAttribute="bottom" constant="30" id="1Q6-Qq-ZT9"/>
                             <constraint firstItem="Jdj-zH-hzm" firstAttribute="top" secondItem="iyl-M7-lGE" secondAttribute="bottom" constant="17" id="3jb-wa-Y6W"/>
                             <constraint firstItem="r5Q-nM-SZ7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DVz-vr-aJN"/>
@@ -68,7 +68,7 @@
                             <constraint firstItem="KMp-X2-l3l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q0Z-NU-BRA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ALh-vy-mP1" secondAttribute="trailing" constant="38" id="aRw-MQ-hHt"/>
                             <constraint firstItem="ALh-vy-mP1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-50" id="fEW-Sg-mE3"/>
-                            <constraint firstItem="KMp-X2-l3l" firstAttribute="top" secondItem="r5Q-nM-SZ7" secondAttribute="bottom" constant="52" id="l7d-SK-RJG"/>
+                            <constraint firstItem="KMp-X2-l3l" firstAttribute="top" secondItem="r5Q-nM-SZ7" secondAttribute="bottom" constant="8" id="l7d-SK-RJG"/>
                             <constraint firstItem="Jdj-zH-hzm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nES-pS-MGV"/>
                             <constraint firstItem="ALh-vy-mP1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="uEo-2c-eBF"/>
                             <constraint firstItem="ALh-vy-mP1" firstAttribute="leading" secondItem="TXr-bV-yax" secondAttribute="trailing" constant="-3" id="yra-is-Osd"/>
@@ -101,15 +101,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iTq-ok-t3k">
-                                <rect key="frame" x="64" y="57" width="473" height="440"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iTq-ok-t3k">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </mapView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iTq-ok-t3k" firstAttribute="height" secondItem="Qr3-0e-j99" secondAttribute="height" id="WGd-Od-x0B"/>
+                            <constraint firstItem="iTq-ok-t3k" firstAttribute="width" secondItem="Qr3-0e-j99" secondAttribute="width" id="bkp-ki-Z6T"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Find ATM" id="CKB-pg-re9" userLabel="Find ATM"/>
+                    <tabBarItem key="tabBarItem" title="Find ATM" image="atm_icon" id="CKB-pg-re9" userLabel="Find ATM"/>
                     <connections>
                         <outlet property="mapView" destination="iTq-ok-t3k" id="IOt-FO-xwv"/>
                     </connections>
@@ -185,7 +189,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Get Cash" id="pvh-x5-r98"/>
+                    <tabBarItem key="tabBarItem" title="Get Cash" image="cash_icon" id="pvh-x5-r98"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDk-0A-s24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -249,7 +253,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="e3D-rn-aRA" userLabel="Home"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home_icon" selectedImage="home_icon" id="e3D-rn-aRA" userLabel="Home"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyL-GC-vy9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -278,5 +282,8 @@
     </scenes>
     <resources>
         <image name="ING_Lion" width="200" height="129"/>
+        <image name="atm_icon" width="30" height="30"/>
+        <image name="cash_icon" width="30" height="30"/>
+        <image name="home_icon" width="30" height="30"/>
     </resources>
 </document>
