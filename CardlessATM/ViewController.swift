@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     // global variable
-    let LoginURL = "http://172.16.16.149/MVCREST/24HSG/customers"
+    let LoginURL = "MVCREST/24HSG/customers"
     
     // variable to keep track of login status
     var loginStatus:Bool = false
@@ -64,7 +64,8 @@ class ViewController: UIViewController {
         
         if let loginName = self.loginNameTextField.text {
             if let password = self.passwordTextField.text {
-                let url = LoginURL + "/" + loginName + "/" + password
+                let baseURL = SessionObject.sharedInstance.baseURL
+                let url = baseURL + "/" + LoginURL + "/" + loginName + "/" + password
 
                 get(url)
             }

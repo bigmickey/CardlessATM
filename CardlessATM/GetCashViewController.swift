@@ -11,7 +11,7 @@ import UIKit
 class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // url to get the PIN Codes
-    let getPINCodesURL = "http://172.16.16.149/MVCREST/24HSG/cashcode"
+    let getPINCodesURL = "MVCREST/24HSG/cashcode"
     
     // list of value for the amount picker
     let amountList = ["10", "20", "30", "40", "50", "60", "70", "80", "90",
@@ -166,7 +166,8 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     func getPINCodes() {
         if let loginUser = SessionObject.sharedInstance.loginUser {
-            let url = getPINCodesURL + "/" + loginUser
+            let baseURL = SessionObject.sharedInstance.baseURL
+            let url = baseURL + "/" + getPINCodesURL + "/" + loginUser
             self.get(url)
         }
     }

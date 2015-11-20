@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     // global variable
-    let GetBalanceURL = "http://172.16.16.149/MVCREST/24HSG/bankaccount"
+    let GetBalanceURL = "MVCREST/24HSG/bankaccount"
     let CurrentBalancePrefix = "Current Balance: "
     let AvailableBalancePrefix = "Available Funds: "
     
@@ -40,8 +40,8 @@ class HomeViewController: UIViewController {
     func getBalance() {
         // retrieve the login username
         if let loginUser = SessionObject.sharedInstance.loginUser {
-        
-            let url = GetBalanceURL + "/" + loginUser
+            let baseURL = SessionObject.sharedInstance.baseURL
+            let url = baseURL + "/" + GetBalanceURL + "/" + loginUser
             
             self.get(url)
         }
