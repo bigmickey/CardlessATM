@@ -23,8 +23,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ING_Lion" translatesAutoresizingMaskIntoConstraints="NO" id="ALh-vy-mP1">
-                                <rect key="frame" x="-8" y="51" width="550" height="129"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ING_Lion" translatesAutoresizingMaskIntoConstraints="NO" id="ALh-vy-mP1">
+                                <rect key="frame" x="342" y="51" width="200" height="129"/>
                                 <animations/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ING" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXr-bV-yax">
@@ -34,22 +34,23 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMp-X2-l3l" userLabel="ErrorMessage">
-                                <rect key="frame" x="235" y="363" width="130" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMp-X2-l3l" userLabel="ErrorMessage">
+                                <rect key="frame" x="300" y="375" width="0.0" height="0.0"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5Q-nM-SZ7">
-                                <rect key="frame" x="281" y="325" width="38" height="30"/>
+                                <rect key="frame" x="269" y="325" width="62" height="42"/>
                                 <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JeH-hm-yja"/>
                                     <segue destination="UmD-HR-JFf" kind="presentation" identifier="loginSuccessSegue" id="Ibr-8T-Bd9"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jdj-zH-hzm">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jdj-zH-hzm">
                                 <rect key="frame" x="235" y="265" width="130" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -66,6 +67,7 @@
                             <constraint firstItem="TXr-bV-yax" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="41" id="Dh3-kX-7SM"/>
                             <constraint firstItem="iyl-M7-lGE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ktr-Ll-OLL"/>
                             <constraint firstItem="KMp-X2-l3l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q0Z-NU-BRA"/>
+                            <constraint firstItem="Jdj-zH-hzm" firstAttribute="width" secondItem="iyl-M7-lGE" secondAttribute="width" id="RzY-ER-Uxn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ALh-vy-mP1" secondAttribute="trailing" constant="38" id="aRw-MQ-hHt"/>
                             <constraint firstItem="ALh-vy-mP1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-50" id="fEW-Sg-mE3"/>
                             <constraint firstItem="KMp-X2-l3l" firstAttribute="top" secondItem="r5Q-nM-SZ7" secondAttribute="bottom" constant="8" id="l7d-SK-RJG"/>
@@ -145,14 +147,6 @@
                                 <rect key="frame" x="141" y="61" width="320" height="180"/>
                                 <animations/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZ8-bk-m74">
-                                <rect key="frame" x="230" y="257" width="140" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Generate PIN Codes"/>
-                                <connections>
-                                    <action selector="generatePINCodesAction:" destination="TQb-uX-dhJ" eventType="touchUpInside" id="Vcs-sg-F6r"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your 8 digit Cash Code:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXx-VL-njr">
                                 <rect key="frame" x="182" y="295" width="237" height="21"/>
                                 <animations/>
@@ -160,14 +154,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12345678" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lw-qZ-40S">
-                                <rect key="frame" x="163" y="360" width="275" height="72"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lw-qZ-40S">
+                                <rect key="frame" x="301" y="360" width="0.0" height="0.0"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An SMS with your OTP code has been sent to your registered device" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pz-eG-NtY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="An SMS with your OTP code has been sent to your registered device" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pz-eG-NtY">
                                 <rect key="frame" x="80" y="425" width="441" height="41"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -175,9 +169,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="30 Minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIQ-L8-uca">
-                                <rect key="frame" x="258" y="526" width="86" height="21"/>
+                                <rect key="frame" x="230" y="454" width="140" height="34"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -188,6 +182,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZ8-bk-m74">
+                                <rect key="frame" x="181" y="257" width="237" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Generate PIN Codes"/>
+                                <connections>
+                                    <action selector="generatePINCodesAction:" destination="TQb-uX-dhJ" eventType="touchUpInside" id="Vcs-sg-F6r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -214,8 +217,10 @@
                     <tabBarItem key="tabBarItem" title="Get Cash" image="cash_icon" selectedImage="cash_icon" id="pvh-x5-r98"/>
                     <connections>
                         <outlet property="amountPicker" destination="DLR-cy-bg3" id="0nn-Hc-MVO"/>
+                        <outlet property="cashCodeLabel" destination="6Lw-qZ-40S" id="nDU-Lb-H5Z"/>
                         <outlet property="countDownLabel" destination="eIQ-L8-uca" id="0kG-aH-SHW"/>
                         <outlet property="generatePINCodesButton" destination="PZ8-bk-m74" id="Art-yv-NzK"/>
+                        <outlet property="sentSMSMessageLabel" destination="8pz-eG-NtY" id="E1U-72-zBp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDk-0A-s24" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -260,8 +265,9 @@
                                 <animations/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-QU-EMy">
-                                <rect key="frame" x="268" y="407" width="65" height="30"/>
+                                <rect key="frame" x="248" y="407" width="105" height="42"/>
                                 <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Find ATM"/>
                                 <connections>
                                     <action selector="findATM:" destination="0yK-sM-DCK" eventType="touchUpInside" id="X2c-Za-Qkm"/>

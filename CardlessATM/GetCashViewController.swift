@@ -10,6 +10,9 @@ import UIKit
 
 class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    // url to get the PIN Codes
+    let getPINCodesURL = "http://172.16.16.149/MVCREST/24HSG/cashcode"
+    
     // list of value for the amount picker
     let amountList = ["10", "20", "30", "40", "50", "60", "70", "80", "90",
     "100", "120", "140", "160", "180", "200",
@@ -24,6 +27,12 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBAction func generatePINCodesAction(sender: AnyObject) {
         generatePINCodes()
     }
+    
+    // Cash Code
+    @IBOutlet weak var cashCodeLabel: UILabel!
+    
+    // Label to display OTP Code has been sent via SMS
+    @IBOutlet weak var sentSMSMessageLabel: UILabel!
     
     // Count Down Timer
     @IBOutlet weak var countDownLabel: UILabel!
@@ -43,7 +52,11 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         GetCurrencySymbol()
         
+        // Default to $50
         amountPicker.selectRow(4, inComponent: 0, animated: true)
+        
+        // hide SMS message
+        hideSentSMSMessage()
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,6 +105,16 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.generatePINCodesButton.enabled = true
     }
     
+    // MARK: - SMS
+
+    func displaySentSMSMessage() {
+        self.sentSMSMessageLabel.hidden = false
+    }
+    
+    func hideSentSMSMessage() {
+        self.sentSMSMessageLabel.hidden = true
+    }
+    
     // MARK: - Timer
     func startCountDownTimer() {
         // reset the countdown value
@@ -137,21 +160,71 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // disable the pickerView
         disableAmountPicker()
         
-        // start updating the count down timer
-        startCountDownTimer()
-        
-        print(chosenAmount)
+        // call server to get the PIN Codes
+        getPINCodes()
     }
 
+    func getPINCodes() {
+        if let loginUser = SessionObject.sharedInstance.loginUser {
+            let url = getPINCodesURL + "/" + loginUser
+            self.get(url)
+        }
+    }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func get(url : String) {
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+        request.HTTPMethod = "GET"
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue()) { (response:NSURLResponse?, data: NSData?, error:NSError?) -> Void in
+            print("\(data?.length)")
+            
+            let json: NSDictionary?
+            do {
+                if let safeData = data {
+                    json = try NSJSONSerialization.JSONObjectWithData(safeData, options: .MutableLeaves) as? NSDictionary
+                } else {
+                    // todo: handle this as an error because data is nil
+                    json = nil
+                }
+            } catch let dataError {
+                // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
+                print(dataError)
+                let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Error could not parse JSON: '\(jsonStr)'")
+                // return or throw?
+                return
+            }
+            
+            // The JSONObjectWithData constructor didn't return an error. But, we should still
+            // check and make sure that json has a value using optional binding.
+            if let parseJSON = json {
+                // Get status
+                if let status = parseJSON["status"] as? String {
+                    if status.containsString("") {
+                        self.cashCodeLabel.text = "Previous Code Exist"
+                    }
+                }
+                
+                // Get the 8 Digit Cash Code
+                if let cashCode = parseJSON["Eight_digit_pin"] as? Int {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.cashCodeLabel.text = "\(cashCode)"
+                        
+                        // display SentSMSMessage
+                        self.displaySentSMSMessage()
+                        
+                        // start updating the count down timer
+                        self.startCountDownTimer()
+                    })
+                }
+            }
+            else {
+                // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Error could not parse JSON: \(jsonStr)")
+            }
+            
+        }
     }
-    */
 
 }
