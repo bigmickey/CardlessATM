@@ -10,8 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // global variable
+    let LoginURL = "http://172.16.16.149/MVCREST/24HSG/customers"
+    
+    // variable to keep track of login status
+    var loginStatus:Bool = false
+    
     @IBOutlet weak var loginNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var errorMessageLabel: UILabel!
     
     @IBAction func loginAction(sender: AnyObject) {
         self.login()
@@ -29,10 +36,14 @@ class ViewController: UIViewController {
 
     func login() {
         
+        // Dismiss the keyboard
+        self.passwordTextField.resignFirstResponder()
+        
         if let loginName = self.loginNameTextField.text {
             if let password = self.passwordTextField.text {
-                let url = ""
-                
+                let url = LoginURL + "/" + loginName + "/" + password
+
+                get(url)
             }
         }
     }
@@ -60,8 +71,15 @@ class ViewController: UIViewController {
             // check and make sure that json has a value using optional binding.
             if let parseJSON = json {
                 // Okay, the parsedJSON is here, let's get the value for 'success' out of it
-                let success = parseJSON["list"] as? NSArray
-                print("Success: \(success)")
+                if let success = parseJSON["result"] as? String {
+                    if success == "SUCCESS" {
+                        self.loginStatus = true
+                        print("Result: \(success)")
+                        self.performSegueWithIdentifier("loginSuccessSegue", sender: self)
+                    } else {
+                        self.errorMessageLabel.text = "Failed to login"
+                    }
+                }
             }
             else {
                 // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
@@ -69,6 +87,14 @@ class ViewController: UIViewController {
                 print("Error could not parse JSON: \(jsonStr)")
             }
             
+        }
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if identifier == "loginSuccessSegue" {
+            return self.loginStatus
+        } else {
+            return false
         }
     }
 
