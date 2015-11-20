@@ -34,6 +34,9 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     // Label to display OTP Code has been sent via SMS
     @IBOutlet weak var sentSMSMessageLabel: UILabel!
     
+    // The label for "Codes are valid for:"
+    @IBOutlet weak var codesValidLabel: UILabel!
+    
     // Count Down Timer
     @IBOutlet weak var countDownLabel: UILabel!
     // count down from 30 minutes, which is 30 * 60 seconds
@@ -109,10 +112,14 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     func displaySentSMSMessage() {
         self.sentSMSMessageLabel.hidden = false
+        self.codesValidLabel.hidden = false
+        self.countDownLabel.hidden = false
     }
     
     func hideSentSMSMessage() {
         self.sentSMSMessageLabel.hidden = true
+        self.codesValidLabel.hidden = true
+        self.countDownLabel.hidden = true
     }
     
     // MARK: - Timer
@@ -120,8 +127,21 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // reset the countdown value
         self.countDown = self.countDownInitialValue
         
+        // initial update
+        self.update()
+        
         // start the timer
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+    }
+    
+    // MARK: - Cash Code Expired
+    func displayCashCodeExpired() {
+        // shown as expired
+        countDownLabel.text = "Cash Code Expired"
+        
+        self.sentSMSMessageLabel.hidden = true
+        self.codesValidLabel.hidden = true
+
     }
     
     func update() {
@@ -144,11 +164,13 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 // stop the timer
                 self.timer?.invalidate()
                 
-                // shown as expired
-                countDownLabel.text = "Cash Code Expired"
-                
                 // re-enable the Amount Picker
                 enableAmountPicker()
+                
+                // show that cash code expired
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.displayCashCodeExpired()
+                })
             }
         }
     }

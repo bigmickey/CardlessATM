@@ -218,6 +218,7 @@
                     <connections>
                         <outlet property="amountPicker" destination="DLR-cy-bg3" id="0nn-Hc-MVO"/>
                         <outlet property="cashCodeLabel" destination="6Lw-qZ-40S" id="nDU-Lb-H5Z"/>
+                        <outlet property="codesValidLabel" destination="hBt-O0-MlY" id="ow6-71-XuD"/>
                         <outlet property="countDownLabel" destination="eIQ-L8-uca" id="0kG-aH-SHW"/>
                         <outlet property="generatePINCodesButton" destination="PZ8-bk-m74" id="Art-yv-NzK"/>
                         <outlet property="sentSMSMessageLabel" destination="8pz-eG-NtY" id="E1U-72-zBp"/>
@@ -239,14 +240,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Balance: $1234.56" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEE-Is-4xJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Current Balance:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEE-Is-4xJ">
                                 <rect key="frame" x="197" y="220" width="206" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Funds: $1034.56" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-tt-pW0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Available Funds:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-tt-pW0">
                                 <rect key="frame" x="199" y="264" width="202" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
