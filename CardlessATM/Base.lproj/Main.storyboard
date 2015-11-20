@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,26 +17,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter login name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iyl-M7-lGE">
-                                <rect key="frame" x="204" y="218" width="180" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter login name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iyl-M7-lGE">
+                                <rect key="frame" x="235" y="285" width="130" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5Q-nM-SZ7">
-                                <rect key="frame" x="271" y="362" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5Q-nM-SZ7">
+                                <rect key="frame" x="281" y="429" width="38" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Login"/>
                                 <connections>
+                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JeH-hm-yja"/>
                                     <segue destination="UmD-HR-JFf" kind="presentation" id="Ibr-8T-Bd9"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jdj-zH-hzm">
-                                <rect key="frame" x="204" y="266" width="180" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jdj-zH-hzm">
+                                <rect key="frame" x="240" y="332" width="121" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ING_Lion" translatesAutoresizingMaskIntoConstraints="NO" id="ALh-vy-mP1">
+                                <rect key="frame" x="302" y="51" width="240" height="128"/>
+                                <animations/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXr-bV-yax">
+                                <rect key="frame" x="110" y="61" width="195" height="108"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="100"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMp-X2-l3l" userLabel="ErrorMessage">
+                                <rect key="frame" x="235" y="474" width="130" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,10 +64,20 @@
                             <constraint firstItem="r5Q-nM-SZ7" firstAttribute="top" secondItem="Jdj-zH-hzm" secondAttribute="bottom" constant="67" id="1Q6-Qq-ZT9"/>
                             <constraint firstItem="Jdj-zH-hzm" firstAttribute="top" secondItem="iyl-M7-lGE" secondAttribute="bottom" constant="17" id="3jb-wa-Y6W"/>
                             <constraint firstItem="r5Q-nM-SZ7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DVz-vr-aJN"/>
+                            <constraint firstItem="TXr-bV-yax" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="41" id="Dh3-kX-7SM"/>
                             <constraint firstItem="iyl-M7-lGE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ktr-Ll-OLL"/>
+                            <constraint firstItem="KMp-X2-l3l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q0Z-NU-BRA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ALh-vy-mP1" secondAttribute="trailing" constant="38" id="aRw-MQ-hHt"/>
+                            <constraint firstItem="KMp-X2-l3l" firstAttribute="top" secondItem="r5Q-nM-SZ7" secondAttribute="bottom" constant="15" id="l7d-SK-RJG"/>
                             <constraint firstItem="Jdj-zH-hzm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nES-pS-MGV"/>
+                            <constraint firstItem="ALh-vy-mP1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="uEo-2c-eBF"/>
+                            <constraint firstItem="ALh-vy-mP1" firstAttribute="leading" secondItem="TXr-bV-yax" secondAttribute="trailing" constant="-3" id="yra-is-Osd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginNameTextField" destination="iyl-M7-lGE" id="Gub-U2-eZW"/>
+                        <outlet property="passwordTextField" destination="Jdj-zH-hzm" id="10h-mu-10l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -240,4 +270,7 @@
             <point key="canvasLocation" x="1039" y="351"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ING_Lion" width="739" height="476"/>
+    </resources>
 </document>
