@@ -71,7 +71,14 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         currencySymbol = "$"
     }
     
-
+    // Mark: share detector
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        // Generate the Codes by Shaking the phone
+        if motion == .MotionShake {
+            generatePINCodes()
+        }
+    }
+    
     // Mark: delegates
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -85,6 +92,8 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return currencySymbol + amountList[row]
     }
+    
+    // MARK: - Amount Picker
     
     func getAmountFromPicker() -> String {
         // get the current Index

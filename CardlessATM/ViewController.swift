@@ -64,12 +64,29 @@ class ViewController: UIViewController {
         
         if let loginName = self.loginNameTextField.text {
             if let password = self.passwordTextField.text {
+                // disable the login button
+
+                // This mutu is a "by-pass" user where the app never authenticate with server
+                if loginName == "Mutu" {
+                    loginSuccessful(loginName)
+                }
+                
+                // construct the URL to get the data
                 let baseURL = SessionObject.sharedInstance.baseURL
                 let url = baseURL + "/" + LoginURL + "/" + loginName + "/" + password
 
                 get(url)
             }
         }
+    }
+    
+    func loginSuccessful(username: String) {
+        // store the username in shared instance
+        self.storeInSharedInstance(username)
+        
+        // store the login status
+        self.loginStatus = true
+        self.performSegueWithIdentifier("loginSuccessSegue", sender: self)
     }
     
     func get(url : String) {
@@ -103,14 +120,9 @@ class ViewController: UIViewController {
                 if let success = parseJSON["result"] as? String {
                     if success == "SUCCESS" {
                         if let username = self.loginNameTextField.text {
-                            
-                            // store the username in shared instance
-                            self.storeInSharedInstance(username)
+                            // login successful
+                            self.loginSuccessful(username)
 
-                            // store the login status
-                            self.loginStatus = true
-                            print("Result: \(success)")
-                            self.performSegueWithIdentifier("loginSuccessSegue", sender: self)
                         }
                     } else {
                         dispatch_async(dispatch_get_main_queue(), {
