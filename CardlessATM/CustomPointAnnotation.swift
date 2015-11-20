@@ -2,13 +2,12 @@
 //  CustomPointAnnotation.swift
 //  CardlessATM
 //
-//  Created by Ivan Jester Cleofe on 20/11/15.
-//  Copyright © 2015 Michael. All rights reserved.
+//  Created by Ivan Jester Cleofe on 14/11/15.
+//  Copyright © 2015 INGAsia. All rights reserved.
 //
 
 import UIKit
 import MapKit
-
 
 class CustomPointAnnotation : MKPointAnnotation
 {

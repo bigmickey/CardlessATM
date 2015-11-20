@@ -21,6 +21,8 @@
 		99EC03BD1BFF34D500A8792C /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC03BC1BFF34D500A8792C /* CustomPointAnnotation.swift */; };
 		99EC03BF1BFF374300A8792C /* DummyJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 99EC03BE1BFF374300A8792C /* DummyJSON.json */; };
 		99EC03C11BFF378E00A8792C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC03C01BFF378E00A8792C /* LocationManager.swift */; };
+		99EC03C31BFF3EF400A8792C /* SGP_Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 99EC03C21BFF3EF400A8792C /* SGP_Location.gpx */; };
+		99EC03C51BFF49BB00A8792C /* RO_Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 99EC03C41BFF49BB00A8792C /* RO_Location.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		99EC03BC1BFF34D500A8792C /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		99EC03BE1BFF374300A8792C /* DummyJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DummyJSON.json; sourceTree = "<group>"; };
 		99EC03C01BFF378E00A8792C /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		99EC03C21BFF3EF400A8792C /* SGP_Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SGP_Location.gpx; sourceTree = "<group>"; };
+		99EC03C41BFF49BB00A8792C /* RO_Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RO_Location.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 				99EC03BC1BFF34D500A8792C /* CustomPointAnnotation.swift */,
 				99EC03BE1BFF374300A8792C /* DummyJSON.json */,
 				99EC03C01BFF378E00A8792C /* LocationManager.swift */,
+				99EC03C21BFF3EF400A8792C /* SGP_Location.gpx */,
+				99EC03C41BFF49BB00A8792C /* RO_Location.gpx */,
 			);
 			path = CardlessATM;
 			sourceTree = "<group>";
@@ -251,6 +257,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99EC03C31BFF3EF400A8792C /* SGP_Location.gpx in Resources */,
+				99EC03C51BFF49BB00A8792C /* RO_Location.gpx in Resources */,
 				99EC03BF1BFF374300A8792C /* DummyJSON.json in Resources */,
 				4CEF3CE81BFF1577009A0F22 /* LaunchScreen.storyboard in Resources */,
 				4CEF3CE51BFF1577009A0F22 /* Assets.xcassets in Resources */,

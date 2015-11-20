@@ -38,10 +38,10 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                 print("No Description Provided")
             }
         }
-        else
-        {
+        //else
+        //{
             getLocation()
-        }
+        //}
         
     }
 
@@ -74,8 +74,6 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         configureDetailView(v as MKAnnotationView!, customPointAnnotation: customPointAnnotation)
         
         return v
-        
-        return v
     }
     
 
@@ -103,7 +101,6 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     func displayLocation(location:CLLocation)
     {
         mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude), span: MKCoordinateSpanMake(0.009, 0.009)), animated: true)
-        //zoomToFitMapAnnotations(mapView)
         self.mapView.showsScale = true
         self.mapView.showsCompass = true
         self.mapView.showsTraffic = true
@@ -111,22 +108,20 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         
         displayATMs()
         
-        locationManager.reverseGeocodeLocationWithCoordinates(location, onReverseGeocodingCompletionHandler:  { (reverseGecodeInfo, placemark, error) -> Void in
+        /*locationManager.reverseGeocodeLocationWithCoordinates(location, onReverseGeocodingCompletionHandler:  { (reverseGecodeInfo, placemark, error) -> Void in
             print(reverseGecodeInfo)
             
-            //let address = reverseGecodeInfo?.objectForKey("country") as! String
+            let address = reverseGecodeInfo?.objectForKey("country") as! String
             //self.locationInfo.text = address
-        })
-        
-        //requestATMs (country: reverseGeocodeInfo?.objectForKey("country") as! String
-        
+            print(address)
+        })*/
         
     }
     
     func displayATMs()
     {
         
-        let path = NSBundle.mainBundle().pathForResource("DummyATM", ofType: "json") as String!
+        let path = NSBundle.mainBundle().pathForResource("DummyJSON", ofType: "json") as String!
         let jsonData = NSData(contentsOfFile: path) as NSData!
         
         var annotationView:MKPinAnnotationView!
@@ -159,7 +154,14 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                     annotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
                     annotationView.animatesDrop = true
                     
-                    mapView.addAnnotation(annotationView.annotation!)
+                    self.mapView.addAnnotation(annotationView.annotation!)
+                    /*
+                    let pin : MKPointAnnotation = MKPointAnnotation()
+                    pin.title = "test"
+                    pin.coordinate = locationPinCoord
+                    
+                    annotationView = MKPinAnnotationView(annotation: pin, reuseIdentifier: "pin")
+                    self.mapView.addAnnotation(pin)*/
                     
                 }
                 

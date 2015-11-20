@@ -1,0 +1,73 @@
+ [
+  {
+  "Country" : "Romania",
+  "ATMs":
+  [
+   {
+   "id" : 1,
+   "status" : 3,
+   "location" : "24H Coding",
+   "address" : "",
+   "latitude": 44.481516,
+   "longitude": 26.102268,
+   "has10" : 1,
+   "has20" : 1,
+   "has50" : 1,
+   "has100" : 1
+   }
+   ]
+  },
+  {
+  "Country" : "Singapore",
+  "ATMs" :
+  [
+   {
+   "id" : 1,
+   "status" : 3,
+   "location" : "Tampines MRT",
+   "address" : "",
+   "latitude": 1.353092,
+   "longitude": 103.945229,
+   "has10" : 1,
+   "has20" : 1,
+   "has50" : 1,
+   "has100" : 1
+   },
+   {
+   "id" : 2,
+   "status" : 3,
+   "location" : "Simei MRT",
+   "address" : "",
+   "latitude": 1.343089,
+   "longitude": 103.953507,
+   "has10" : 0,
+   "has20" : 0,
+   "has50" : 1,
+   "has100" : 1
+   },
+   {
+   "id" : 3,
+   "status" : 1,
+   "location" : "DBS Telepark",
+   "address" : "",
+   "latitude": 1.353247,
+   "longitude": 103.942273,
+   "has10" : 0,
+   "has20" : 0,
+   "has50" : 1,
+   "has100" : 1
+   },
+   {
+   "id" : 4,
+   "status" : 2,
+   "location" : "Abacus Plaza",
+   "latitude": 1.352727,
+   "longitude": 103.942919,
+   "has10" : 0,
+   "has20" : 0,
+   "has50" : 1,
+   "has100" : 0
+   }
+   ]
+  }
+  ]
