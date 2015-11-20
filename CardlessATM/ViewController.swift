@@ -21,7 +21,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var errorMessageLabel: UILabel!
     
     @IBAction func loginAction(sender: AnyObject) {
-        self.login()
+        // Dismiss the keyboard
+        self.passwordTextField.resignFirstResponder()
+        
+        if (self.validateLogin()) {
+            self.login()
+        } else {
+            // no need to handle this since validateLogin has updated the error message
+        }
     }
     
     override func viewDidLoad() {
@@ -33,11 +40,23 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func validateLogin() -> Bool {
+        if (loginNameTextField.text != "") {
+            if (passwordTextField.text != "") {
+                return true
+            } else {
+                errorMessageLabel.text = "Please enter password"
+                return false
+            }
+            
+        } else {
+            errorMessageLabel.text = "Please enter login name"
+            return false
+        }
+    }
 
     func login() {
-        
-        // Dismiss the keyboard
-        self.passwordTextField.resignFirstResponder()
         
         if let loginName = self.loginNameTextField.text {
             if let password = self.passwordTextField.text {
