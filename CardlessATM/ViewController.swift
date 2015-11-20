@@ -41,6 +41,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func storeInSharedInstance(username:String) {
+        SessionObject.sharedInstance.loginUser = username
+    }
+    
     func validateLogin() -> Bool {
         if (loginNameTextField.text != "") {
             if (passwordTextField.text != "") {
@@ -97,9 +101,16 @@ class ViewController: UIViewController {
                 // Okay, the parsedJSON is here, let's get the value for 'success' out of it
                 if let success = parseJSON["result"] as? String {
                     if success == "SUCCESS" {
-                        self.loginStatus = true
-                        print("Result: \(success)")
-                        self.performSegueWithIdentifier("loginSuccessSegue", sender: self)
+                        if let username = self.loginNameTextField.text {
+                            
+                            // store the username in shared instance
+                            self.storeInSharedInstance(username)
+
+                            // store the login status
+                            self.loginStatus = true
+                            print("Result: \(success)")
+                            self.performSegueWithIdentifier("loginSuccessSegue", sender: self)
+                        }
                     } else {
                         dispatch_async(dispatch_get_main_queue(), {
                             self.errorMessageLabel.text = "Failed to login"

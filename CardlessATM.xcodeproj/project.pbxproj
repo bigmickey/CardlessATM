@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C54DDDA1BFF76D900CE307A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54DDD91BFF76D900CE307A /* Session.swift */; };
 		4CEF3CDB1BFF1577009A0F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3CDA1BFF1577009A0F22 /* AppDelegate.swift */; };
 		4CEF3CDD1BFF1577009A0F22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF3CDC1BFF1577009A0F22 /* ViewController.swift */; };
 		4CEF3CE01BFF1577009A0F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEF3CDE1BFF1577009A0F22 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C54DDD91BFF76D900CE307A /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		4CEF3CD71BFF1577009A0F22 /* CardlessATM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardlessATM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEF3CDA1BFF1577009A0F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CEF3CDC1BFF1577009A0F22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				99EC03BC1BFF34D500A8792C /* CustomPointAnnotation.swift */,
 				99EC03BE1BFF374300A8792C /* DummyJSON.json */,
 				99EC03C01BFF378E00A8792C /* LocationManager.swift */,
+				4C54DDD91BFF76D900CE307A /* Session.swift */,
 			);
 			path = CardlessATM;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				4CEF3CDB1BFF1577009A0F22 /* AppDelegate.swift in Sources */,
 				4CEF3D101BFF2ABB009A0F22 /* GetCashViewController.swift in Sources */,
 				4CEF3CE31BFF1577009A0F22 /* CardlessATM.xcdatamodeld in Sources */,
+				4C54DDDA1BFF76D900CE307A /* Session.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

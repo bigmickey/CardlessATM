@@ -38,11 +38,13 @@ class HomeViewController: UIViewController {
     }
     
     func getBalance() {
-        let username = "Todd"
+        // retrieve the login username
+        if let loginUser = SessionObject.sharedInstance.loginUser {
         
-        let url = GetBalanceURL + "/" + username
-        
-        self.get(url)
+            let url = GetBalanceURL + "/" + loginUser
+            
+            self.get(url)
+        }
     }
     
     func get(url : String) {
