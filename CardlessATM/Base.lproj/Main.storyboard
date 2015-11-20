@@ -134,52 +134,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select your withdrawal amount:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5d-Dh-PuR">
-                                <rect key="frame" x="170" y="41" width="261" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select your withdrawal amount:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5d-Dh-PuR">
+                                <rect key="frame" x="181" y="41" width="240" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DLR-cy-bg3">
-                                <rect key="frame" x="170" y="81" width="261" height="151"/>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DLR-cy-bg3">
+                                <rect key="frame" x="141" y="61" width="320" height="180"/>
                                 <animations/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZ8-bk-m74">
-                                <rect key="frame" x="182" y="240" width="237" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZ8-bk-m74">
+                                <rect key="frame" x="230" y="257" width="140" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Generate PIN Codes"/>
+                                <connections>
+                                    <action selector="generatePINCodesAction:" destination="TQb-uX-dhJ" eventType="touchUpInside" id="Vcs-sg-F6r"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your 8 digit Cash Code:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXx-VL-njr">
-                                <rect key="frame" x="182" y="289" width="237" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your 8 digit Cash Code:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXx-VL-njr">
+                                <rect key="frame" x="182" y="295" width="237" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12345678" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lw-qZ-40S">
-                                <rect key="frame" x="182" y="324" width="237" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12345678" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lw-qZ-40S">
+                                <rect key="frame" x="163" y="360" width="275" height="72"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An SMS with your OTP code has been sent to your registered device" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pz-eG-NtY">
+                                <rect key="frame" x="80" y="425" width="441" height="41"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="An SMS with your OTP code has been sent to your registered device" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pz-eG-NtY">
-                                <rect key="frame" x="182" y="358" width="237" height="79"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="30 Minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIQ-L8-uca">
+                                <rect key="frame" x="258" y="526" width="86" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Codes are valid for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBt-O0-MlY">
-                                <rect key="frame" x="182" y="459" width="237" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30 Minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIQ-L8-uca">
-                                <rect key="frame" x="245" y="494" width="111" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Codes are valid for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBt-O0-MlY">
+                                <rect key="frame" x="183" y="501" width="237" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -187,9 +190,33 @@
                             </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="eIQ-L8-uca" firstAttribute="top" secondItem="hBt-O0-MlY" secondAttribute="bottom" constant="4" id="1kU-7W-G16"/>
+                            <constraint firstItem="vXx-VL-njr" firstAttribute="top" secondItem="PZ8-bk-m74" secondAttribute="bottom" constant="8" id="3Ip-CD-u2f"/>
+                            <constraint firstItem="vXx-VL-njr" firstAttribute="centerX" secondItem="CLv-9p-ota" secondAttribute="centerX" id="6kg-Sx-cDW"/>
+                            <constraint firstItem="K5d-Dh-PuR" firstAttribute="top" secondItem="j39-42-MLx" secondAttribute="bottom" constant="21" id="75w-VA-CIc"/>
+                            <constraint firstItem="hBt-O0-MlY" firstAttribute="top" secondItem="8pz-eG-NtY" secondAttribute="bottom" constant="35" id="B4a-bA-DMz"/>
+                            <constraint firstItem="hBt-O0-MlY" firstAttribute="centerX" secondItem="CLv-9p-ota" secondAttribute="centerX" constant="1.5" id="FBI-Dy-yyg"/>
+                            <constraint firstItem="PZ8-bk-m74" firstAttribute="top" secondItem="DLR-cy-bg3" secondAttribute="bottom" constant="16" id="Hqw-pv-VPk"/>
+                            <constraint firstItem="6Lw-qZ-40S" firstAttribute="top" secondItem="vXx-VL-njr" secondAttribute="bottom" constant="8" id="Lrk-ln-33v"/>
+                            <constraint firstItem="DLR-cy-bg3" firstAttribute="top" secondItem="K5d-Dh-PuR" secondAttribute="bottom" constant="-1" id="NYc-DW-s3F"/>
+                            <constraint firstItem="6Lw-qZ-40S" firstAttribute="centerX" secondItem="CLv-9p-ota" secondAttribute="centerX" id="Ojr-DH-H4m"/>
+                            <constraint firstItem="PZ8-bk-m74" firstAttribute="centerX" secondItem="CLv-9p-ota" secondAttribute="centerX" id="Vh6-U0-dfh"/>
+                            <constraint firstItem="eIQ-L8-uca" firstAttribute="centerX" secondItem="CLv-9p-ota" secondAttribute="centerX" id="jng-1S-uBO"/>
+                            <constraint firstItem="8pz-eG-NtY" firstAttribute="leading" secondItem="CLv-9p-ota" secondAttribute="leadingMargin" constant="60" id="l9A-oz-5tA"/>
+                            <constraint firstItem="8pz-eG-NtY" firstAttribute="top" secondItem="6Lw-qZ-40S" secondAttribute="bottom" constant="-7" id="oKd-Db-a6q"/>
+                            <constraint firstItem="DLR-cy-bg3" firstAttribute="centerX" secondItem="CLv-9p-ota" secondAttribute="centerX" constant="1" id="oqM-e8-pbG"/>
+                            <constraint firstItem="8pz-eG-NtY" firstAttribute="centerX" secondItem="CLv-9p-ota" secondAttribute="centerX" id="vRS-jv-YEP"/>
+                            <constraint firstItem="K5d-Dh-PuR" firstAttribute="centerX" secondItem="CLv-9p-ota" secondAttribute="centerX" id="zSP-M2-qvw"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Get Cash" image="cash_icon" selectedImage="cash_icon" id="pvh-x5-r98"/>
+                    <connections>
+                        <outlet property="amountPicker" destination="DLR-cy-bg3" id="0nn-Hc-MVO"/>
+                        <outlet property="countDownLabel" destination="eIQ-L8-uca" id="0kG-aH-SHW"/>
+                        <outlet property="generatePINCodesButton" destination="PZ8-bk-m74" id="Art-yv-NzK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDk-0A-s24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
