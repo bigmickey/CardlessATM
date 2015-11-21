@@ -13,7 +13,7 @@ private let _sharedSessionInstance = SessionObject()
 class SessionObject {
     
     // server IP
-    let baseURL = "http://172.16.16.149"
+    let baseURL = "http://172.16.0.209"
     
     // global values
     var loginUser:String? = nil

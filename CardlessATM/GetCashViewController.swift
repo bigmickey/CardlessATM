@@ -12,6 +12,7 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     // url to get the PIN Codes
     let getPINCodesURL = "MVCREST/24HSG/cashcode"
+    let userAndAmountDeliminator = ","
     
     // list of value for the amount picker
     let amountList = ["10", "20", "30", "40", "50", "60", "70", "80", "90",
@@ -198,7 +199,7 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func getPINCodes() {
         if let loginUser = SessionObject.sharedInstance.loginUser {
             let baseURL = SessionObject.sharedInstance.baseURL
-            let url = baseURL + "/" + getPINCodesURL + "/" + loginUser
+            let url = baseURL + "/" + getPINCodesURL + "/" + loginUser + userAndAmountDeliminator + getAmountFromPicker()
             self.get(url)
         }
     }
@@ -232,7 +233,7 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             if let parseJSON = json {
                 // Get status
                 if let status = parseJSON["status"] as? String {
-                    if status.containsString("") {
+                    if status.containsString("PREVIOUS") {
                         self.cashCodeLabel.text = "Previous Code Exist"
                     }
                 }
