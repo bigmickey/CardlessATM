@@ -5,15 +5,51 @@
   [
    {
    "id" : 1,
-   "status" : 3,
+   "status" : 2,
    "location" : "24H Coding",
    "address" : "",
-   "latitude": 44.481516,
-   "longitude": 26.102268,
+   "latitude": 44.486265,
+   "longitude": 26.106209,
    "has10" : 1,
    "has20" : 1,
    "has50" : 1,
    "has100" : 1
+   },
+   {
+   "id" : 2,
+   "status" : 2,
+   "location" : "Bucuresti Mall",
+   "address" : "",
+   "latitude": 44.419955,
+   "longitude": 26.126051,
+   "has10" : 0,
+   "has20" : 1,
+   "has50" : 1,
+   "has100" : 0
+   },
+   {
+   "id" : 3,
+   "status" : 3,
+   "location" : "Promenada",
+   "address" : "",
+   "latitude": 44.477399,
+   "longitude": 26.105135,
+   "has10" : 0,
+   "has20" : 0,
+   "has50" : 1,
+   "has100" : 1
+   },
+   {
+   "id" : 4,
+   "status" : 1,
+   "location" : "Iride Business Park",
+   "address" : "",
+   "latitude": 44.482319,
+   "longitude": 26.117297,
+   "has10" : 0,
+   "has20" : 0,
+   "has50" : 1,
+   "has100" : 0
    }
   ]
   }

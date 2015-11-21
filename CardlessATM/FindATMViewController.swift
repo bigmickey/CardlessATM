@@ -16,6 +16,9 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     var locationManager:LocationManager!
     var userLocation: CLLocation!
     
+    var userDirection : MKPolyline = MKPolyline()
+    var showDirection : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,11 +42,7 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                 print("No Description Provided")
             }
         }
-        //else
-        //{
-            getLocation()
-        //}
-        
+        getLocation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,34 +71,31 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         let customPointAnnotation = annotation as! CustomPointAnnotation
         v!.image = UIImage(named:customPointAnnotation.pinCustomImageName)
         
-        //v!.sizeThatFits(CGSize(width: 200, height: 100))
-        
         configureDetailView(v as MKAnnotationView!, customPointAnnotation: customPointAnnotation)
         
         return v
     }
     
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView)
+    {
         print(view.annotation?.title)
         print(view.annotation?.coordinate)
         
-        //let userCoord = CLLocationCoordinate2D
-        //var pinCoord : CLLocationCoordinate2D = CLLocationCoordinate2DMake(view.annotation?.coordinate.latitude.value, view.coordinate.longitude)
-    
-        //let userCoord : CLLocation = CLLocation(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         let pinCoord : CLLocation = CLLocation(latitude: view.annotation?.coordinate.latitude as CLLocationDegrees!, longitude: view.annotation?.coordinate.longitude as CLLocationDegrees!)
         
         let mapManager : MapManager = MapManager()
         let dest : CLLocationCoordinate2D = CLLocationCoordinate2DMake(pinCoord.coordinate.latitude, pinCoord.coordinate.longitude)
-        mapManager.directionsFromCurrentLocation(to: dest) { (route, directionInformation, boundingRegion, error) -> () in
-            if let web = self.mapView{
+        
+        mapManager.directionsFromCurrentLocation(to: dest)
+        { (route, directionInformation, boundingRegion, error) -> () in
+            if let web = self.mapView
+            {
                 
-                dispatch_async(dispatch_get_main_queue()) {
-                    print(route)
-                    print(boundingRegion)
+                dispatch_async(dispatch_get_main_queue())
+                {
                     web.addOverlay(route!)
                     web.setVisibleMapRect(boundingRegion!, animated: true)
-                    
                 }
                 
             }
@@ -107,11 +103,28 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 
     }
     
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
-        renderer.strokeColor = UIColor.blueColor()
-        return renderer
+    
+    func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView)
+    {
+        self.showDirection = false
     }
+    
+    var directionView : MKPolylineRenderer? = nil
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        print("renderer")
+
+        directionView = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+        directionView?.strokeColor = UIColor.blueColor()
+        directionView?.lineWidth = 1
+        
+        return directionView!
+    }
+    
+    func mapView(mapView: MKMapView, didAddOverlayRenderers renderers: [MKOverlayRenderer]) {
+        print("add render")
+        
+    }
+    
     
 
     /*
@@ -160,44 +173,26 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     func displayATMs()
     {
-        
-        let path = NSBundle.mainBundle().pathForResource("DummyJSON", ofType: "json") as String!
-        let jsonData = NSData(contentsOfFile: path) as NSData!
+        let url : String = "http://172.16.0.209/MVCREST/24HSG/atm"
+        //let path = NSBundle.mainBundle().pathForResource("DummyJSON", ofType: "json") as String!
+        //let jsonData = NSData(contentsOfFile: path) as NSData!
         
         var annotationView:MKPinAnnotationView!
         var pointAnnotation:CustomPointAnnotation!
         
         do
         {
-            let jsonArray = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+            let jsonArray = self.getJSONViaAPIArray(url)
+            //let jsonArray = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as! NSArray
             
-            for (var iCountry = 0; iCountry < jsonArray.count; iCountry++)
+            if jsonArray == nil
             {
-                let jsonDictionary = jsonArray[0] as! NSDictionary
-                //let Country = jsonDictionary["Country"]
-                let ATMs = jsonDictionary["ATMs"] as! NSArray
-                
-                for (var iATM = 0; iATM < ATMs.count; iATM++)
-                {
-                    let atmDictionary = ATMs[iATM] as! NSDictionary
-                    let locationPinCoord = CLLocationCoordinate2D(latitude: atmDictionary["latitude"] as! Double, longitude: atmDictionary["longitude"]  as! Double)
-                    
-                    pointAnnotation = CustomPointAnnotation()
-                    pointAnnotation.coordinate = locationPinCoord
-                    
-                    pointAnnotation.pinCustomImageName = getStatusImage((atmDictionary["status"] as! Int))
-                    pointAnnotation.title = atmDictionary["location"] as? String
-                    pointAnnotation.has10notes = atmDictionary["has10"] as? Bool
-                    pointAnnotation.has20notes = atmDictionary["has20"] as? Bool
-                    pointAnnotation.has50notes = atmDictionary["has50"] as? Bool
-                    pointAnnotation.has100notes = atmDictionary["has100"] as? Bool
-                    annotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
-                    annotationView.animatesDrop = true
-                    
-                    self.mapView.addAnnotation(annotationView.annotation!)
-                    
-                }
-                
+                return
+            }
+            
+            if jsonArray!.count == 0
+            {
+                return
             }
         }
         catch
@@ -314,7 +309,7 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         //            var error:NSError?
         do
         {
-            if data != nil
+            if data == nil
             {
                 print("data empty")
                 return nil
@@ -344,7 +339,7 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     //let url: String = "http://172.16.16.149/MVCREST/24HSG/customers/Todd1/00011"
     //let url : String = "http://213.157.170.77/NL/commonapi/locations"
     
-    func getJSONViaAPI(url : String) -> NSDictionary?
+    func getJSONViaAPIDictionary(url : String) -> NSDictionary?
     {
 
         let request : NSMutableURLRequest = NSMutableURLRequest()
@@ -368,6 +363,66 @@ class FindATMViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                 if jsonResult != nil
                 {
                     print(jsonResult)
+                }
+                else
+                {
+                    print(url + " : empty data from JSON")
+                }
+            }
+            else
+            {
+                print("data empty")
+                
+            }
+        })
+        return jsonResult
+    }
+    
+    func getJSONViaAPIArray(url : String) -> NSArray?
+    {
+        
+        let request : NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+        
+        var jsonResult : NSArray?
+        
+        print(request)
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler: {  (response:NSURLResponse?,data: NSData?, error: NSError?) -> Void in
+            print(response)
+            if error != nil
+            {
+                print(error)
+            }
+            print(data)
+            if data != nil
+            {
+                var annotationView:MKPinAnnotationView!
+                var pointAnnotation:CustomPointAnnotation!
+                jsonResult = self.getJSONArray(data)
+                
+                if jsonResult != nil
+                {
+                    for (var iATM = 0; iATM < jsonResult!.count; iATM++)
+                    {
+                        let atmDictionary = jsonResult![iATM] as? NSDictionary
+                        let locationPinCoord = CLLocationCoordinate2D(latitude: atmDictionary!["destination_latitude"] as! Double, longitude: atmDictionary!["destination_longitude"]  as! Double)
+                        
+                        pointAnnotation = CustomPointAnnotation()
+                        pointAnnotation.coordinate = locationPinCoord
+                        
+                        pointAnnotation.pinCustomImageName = self.getStatusImage((atmDictionary!["utilization"] as! Int))
+                        pointAnnotation.title = atmDictionary!["strFullAddress"] as? String
+                        pointAnnotation.has10notes = atmDictionary!["has10"] as? Bool
+                        pointAnnotation.has20notes = atmDictionary!["has20"] as? Bool
+                        pointAnnotation.has50notes = atmDictionary!["has50"] as? Bool
+                        pointAnnotation.has100notes = atmDictionary!["has100"] as? Bool
+                        annotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
+                        annotationView.animatesDrop = true
+                        
+                        self.mapView.addAnnotation(annotationView.annotation!)
+                        
+                    }
                 }
                 else
                 {
