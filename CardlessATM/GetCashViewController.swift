@@ -10,6 +10,9 @@ import UIKit
 
 class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    // url to get the PIN Codes
+    let getPINCodesURL = "MVCREST/24HSG/cashcode"
+    
     // list of value for the amount picker
     let amountList = ["10", "20", "30", "40", "50", "60", "70", "80", "90",
     "100", "120", "140", "160", "180", "200",
@@ -24,6 +27,15 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBAction func generatePINCodesAction(sender: AnyObject) {
         generatePINCodes()
     }
+    
+    // Cash Code
+    @IBOutlet weak var cashCodeLabel: UILabel!
+    
+    // Label to display OTP Code has been sent via SMS
+    @IBOutlet weak var sentSMSMessageLabel: UILabel!
+    
+    // The label for "Codes are valid for:"
+    @IBOutlet weak var codesValidLabel: UILabel!
     
     // Count Down Timer
     @IBOutlet weak var countDownLabel: UILabel!
@@ -43,7 +55,11 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         GetCurrencySymbol()
         
+        // Default to $50
         amountPicker.selectRow(4, inComponent: 0, animated: true)
+        
+        // hide SMS message
+        hideSentSMSMessage()
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,7 +71,14 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         currencySymbol = "$"
     }
     
-
+    // Mark: share detector
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        // Generate the Codes by Shaking the phone
+        if motion == .MotionShake {
+            generatePINCodes()
+        }
+    }
+    
     // Mark: delegates
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -69,6 +92,8 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return currencySymbol + amountList[row]
     }
+    
+    // MARK: - Amount Picker
     
     func getAmountFromPicker() -> String {
         // get the current Index
@@ -92,13 +117,40 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.generatePINCodesButton.enabled = true
     }
     
+    // MARK: - SMS
+
+    func displaySentSMSMessage() {
+        self.sentSMSMessageLabel.hidden = false
+        self.codesValidLabel.hidden = false
+        self.countDownLabel.hidden = false
+    }
+    
+    func hideSentSMSMessage() {
+        self.sentSMSMessageLabel.hidden = true
+        self.codesValidLabel.hidden = true
+        self.countDownLabel.hidden = true
+    }
+    
     // MARK: - Timer
     func startCountDownTimer() {
         // reset the countdown value
         self.countDown = self.countDownInitialValue
         
+        // initial update
+        self.update()
+        
         // start the timer
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+    }
+    
+    // MARK: - Cash Code Expired
+    func displayCashCodeExpired() {
+        // shown as expired
+        countDownLabel.text = "Cash Code Expired"
+        
+        self.sentSMSMessageLabel.hidden = true
+        self.codesValidLabel.hidden = true
+
     }
     
     func update() {
@@ -121,11 +173,13 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 // stop the timer
                 self.timer?.invalidate()
                 
-                // shown as expired
-                countDownLabel.text = "Cash Code Expired"
-                
                 // re-enable the Amount Picker
                 enableAmountPicker()
+                
+                // show that cash code expired
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.displayCashCodeExpired()
+                })
             }
         }
     }
@@ -137,21 +191,72 @@ class GetCashViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // disable the pickerView
         disableAmountPicker()
         
-        // start updating the count down timer
-        startCountDownTimer()
-        
-        print(chosenAmount)
+        // call server to get the PIN Codes
+        getPINCodes()
     }
 
+    func getPINCodes() {
+        if let loginUser = SessionObject.sharedInstance.loginUser {
+            let baseURL = SessionObject.sharedInstance.baseURL
+            let url = baseURL + "/" + getPINCodesURL + "/" + loginUser
+            self.get(url)
+        }
+    }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func get(url : String) {
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+        request.HTTPMethod = "GET"
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue()) { (response:NSURLResponse?, data: NSData?, error:NSError?) -> Void in
+            print("\(data?.length)")
+            
+            let json: NSDictionary?
+            do {
+                if let safeData = data {
+                    json = try NSJSONSerialization.JSONObjectWithData(safeData, options: .MutableLeaves) as? NSDictionary
+                } else {
+                    // todo: handle this as an error because data is nil
+                    json = nil
+                }
+            } catch let dataError {
+                // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
+                print(dataError)
+                let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Error could not parse JSON: '\(jsonStr)'")
+                // return or throw?
+                return
+            }
+            
+            // The JSONObjectWithData constructor didn't return an error. But, we should still
+            // check and make sure that json has a value using optional binding.
+            if let parseJSON = json {
+                // Get status
+                if let status = parseJSON["status"] as? String {
+                    if status.containsString("") {
+                        self.cashCodeLabel.text = "Previous Code Exist"
+                    }
+                }
+                
+                // Get the 8 Digit Cash Code
+                if let cashCode = parseJSON["Eight_digit_pin"] as? Int {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.cashCodeLabel.text = "\(cashCode)"
+                        
+                        // display SentSMSMessage
+                        self.displaySentSMSMessage()
+                        
+                        // start updating the count down timer
+                        self.startCountDownTimer()
+                    })
+                }
+            }
+            else {
+                // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Error could not parse JSON: \(jsonStr)")
+            }
+            
+        }
     }
-    */
 
 }

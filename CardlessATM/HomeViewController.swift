@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     // global variable
-    let GetBalanceURL = "http://172.16.16.149/MVCREST/24HSG/bankaccount"
+    let GetBalanceURL = "MVCREST/24HSG/bankaccount"
     let CurrentBalancePrefix = "Current Balance: "
     let AvailableBalancePrefix = "Available Funds: "
     
@@ -30,18 +30,28 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         getBalance()
+        
+        // force refresh
+        forceRefreshTabBarItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    // this is an item to be fixed
+    func forceRefreshTabBarItem() {
+        self.tabBarController?.selectedIndex = 1
+        self.tabBarController?.selectedIndex = 2
+        self.tabBarController?.selectedIndex = 0
+    }
     
     func getBalance() {
         // retrieve the login username
         if let loginUser = SessionObject.sharedInstance.loginUser {
-        
-            let url = GetBalanceURL + "/" + loginUser
+            let baseURL = SessionObject.sharedInstance.baseURL
+            let url = baseURL + "/" + GetBalanceURL + "/" + loginUser
             
             self.get(url)
         }
